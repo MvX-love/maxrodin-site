@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MAX RODIN — Island Tours</title>
+<meta name="description" content="Фото и видео в турах по островам Пхукета. Photo &amp; video on Phuket island tours.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Onest:wght@400;500;700&display=swap">
+<style>
+/* VOICE occasion: a warm, confident sea-day poster that also sells
+   IDEA a boat-day ticket: a deep Andaman-sea band, limestone islands, a longtail boat, one coral stamp colour
+   PICTURE layered island scene at sunrise in the hero; later replaced by his best photos
+   COLOUR sea #0a4d68 dominant, lagoon #19a7a0 support, coral #ff6a4d accent, sand-white ground
+   TYPE Unbounded (display, Cyrillic) + Onest (text, Cyrillic)
+   LAYOUT hero: title over full-bleed scene; picker in one column on phone, cards + summary side by side on laptop */
+:root{color-scheme:light dark;--bg:light-dark(#fbfaf7,#06161e);--ink:light-dark(#0c1f28,#eaf3f5);--soft:light-dark(#4b5d64,#a9bec4);--sea:#0a4d68;--lag:#19a7a0;--cor:#ff6a4d;--card:light-dark(#ffffff,#0d2631);--line:light-dark(#dfe6e8,#1d3c48)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Onest,system-ui,sans-serif;overflow-x:clip}
+img{max-width:100%}
+h1,h2,h3{font-family:Unbounded,Onest,sans-serif;line-height:1.05;letter-spacing:-.02em;text-wrap:balance;margin:0}
+h2{font-size:clamp(28px,4vw,42px);margin-bottom:18px}
+h3{font-size:19px;font-weight:500}
+p{margin:0 0 12px}
+a{color:inherit}
+.band{padding-block:clamp(36px,5vw,72px);padding-left:max(5vw,16px);padding-right:max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--sea) 94%,transparent);color:#fff;backdrop-filter:blur(6px)}
+nav .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;padding:12px max(5vw,16px)}
+.logo{font:700 16px Unbounded,sans-serif;letter-spacing:.02em;margin-right:auto;text-decoration:none}
+nav a.l{text-decoration:none;font-size:15px;opacity:.9;padding:8px 0}
+nav a.l:hover{opacity:1;text-decoration:underline}
+.lang{display:flex;border:1px solid #ffffff66;border-radius:99px;overflow:hidden}
+.lang button{background:none;border:0;color:#fff;font:500 14px Onest,sans-serif;padding:8px 12px;cursor:pointer;min-height:36px}
+.lang button[aria-pressed=true]{background:#fff;color:var(--sea)}
+.hero{position:relative;background:var(--sea);color:#fff;overflow:hidden}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,#06243aaa 0%,#06243a55 50%,#06243a11 100%)}
+.hero .wrap{position:relative;padding:clamp(56px,9vw,120px) max(5vw,16px) clamp(140px,22vw,260px)}
+.hero h1{text-shadow:0 2px 18px #0006;font-size:clamp(34px,5.6vw,64px);max-width:13em;font-weight:700}
+.hero p{font-size:clamp(17px,2vw,20px);max-width:30em;margin-top:16px;opacity:.95}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 22px;border-radius:99px;font:700 16px Onest,sans-serif;text-decoration:none;border:2px solid transparent;cursor:pointer}
+.btn.main{background:var(--cor);color:#fff}
+.btn.main:hover{filter:brightness(1.07)}
+.btn.ghost{border-color:currentColor;background:transparent;color:inherit}
+.btn:focus-visible,button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(--lag);outline-offset:2px}
+.gal{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px}
+.tile{flex:0 0 clamp(220px,28vw,320px);aspect-ratio:4/5;border-radius:18px;scroll-snap-align:start;position:relative;overflow:hidden;color:#fff;display:flex;align-items:flex-end;padding:16px}
+.tile img,.tile video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tile::after{content:"";position:absolute;inset:auto 0 0;height:45%;background:linear-gradient(transparent,#0009);pointer-events:none}
+.tile b{z-index:1}
+.tile.v::after{display:none}
+.tile.v b{position:absolute;top:14px;left:16px}
+.tile b{position:relative;font:500 17px Unbounded,sans-serif}
+.galbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.arrows{display:flex;gap:8px}
+.arrows button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:20px;cursor:pointer}
+.note{font-size:14px;color:var(--soft)}
+.pick{background:light-dark(#e9f6f5,#0a222b)}
+.days{display:flex;gap:10px;margin:6px 0 22px;flex-wrap:wrap}
+.days button{min-height:48px;padding:10px 22px;border-radius:99px;border:2px solid var(--sea);background:transparent;color:var(--ink);font:700 16px Onest,sans-serif;cursor:pointer}
+:root[data-theme=dark] .days button{border-color:var(--lag)}
+.days button[aria-pressed=true]{background:var(--sea);border-color:var(--sea);color:#fff}
+.grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:22px;align-items:start}
+.pk{display:grid;gap:12px}
+.opt{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:4px 14px;align-items:center;background:var(--card);border:2px solid var(--line);border-radius:16px;padding:16px 18px;cursor:pointer}
+.opt input{width:22px;height:22px;accent-color:var(--cor);grid-row:span 2}
+.opt.on{border-color:var(--cor)}
+.opt .pr{font:700 19px Unbounded,sans-serif;white-space:nowrap;grid-row:span 2}
+.opt small{grid-column:2;color:var(--soft);font-size:15px}
+.tag{display:inline-block;margin-left:8px;font:500 13px Onest,sans-serif;background:var(--cor);color:#fff;border-radius:99px;padding:2px 10px;vertical-align:2px}
+.sum{position:sticky;top:84px;background:var(--sea);color:#fff;border-radius:20px;padding:22px}
+.sum h3{margin-bottom:10px}
+.adds{display:grid;gap:8px;margin:10px 0 16px}
+.adds label{display:flex;gap:10px;align-items:center;font-size:15px;min-height:36px}
+.adds input{width:20px;height:20px;accent-color:var(--cor)}
+.adds span.p{margin-left:auto;white-space:nowrap;opacity:.9}
+.f{display:grid;grid-template-columns:minmax(0,1fr) 7em;gap:10px;margin-bottom:14px}
+.f label{font-size:14px;display:grid;gap:4px}
+.f input{font:16px Onest,sans-serif;padding:10px 12px;border-radius:10px;border:1px solid #ffffff55;background:#ffffff14;color:#fff;min-height:44px}
+.total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #ffffff44;padding-top:12px;margin-bottom:14px}
+.total b{font:700 clamp(26px,3vw,32px) Unbounded,sans-serif;white-space:nowrap}
+.sum .btn{width:100%;margin-top:8px}
+.sum .btn.ghost{color:#fff}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line)}
+td.n,th.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+details{margin-top:22px;background:var(--card);border-radius:14px;padding:4px 16px;border:1px solid var(--line)}
+summary{cursor:pointer;font-weight:700;padding:12px 0;min-height:44px}
+.scroll{overflow-x:auto}
+.after{background:var(--lag);color:#04252a}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px;margin-top:8px}
+.box{background:#ffffffd9;border-radius:18px;padding:22px}
+.box h3{margin-bottom:8px}
+.about .two{align-items:center}
+.port{aspect-ratio:4/5;border-radius:22px;width:88%;background:var(--sea);position:relative;overflow:hidden}
+.portw{position:relative;justify-self:center;width:100%;max-width:380px;padding:0 0 18px 0}
+.inset{position:absolute;right:-10px;bottom:0;width:40%;aspect-ratio:4/5;border-radius:16px;overflow:hidden;border:4px solid var(--bg);box-shadow:0 6px 18px #0003}
+.inset img{width:100%;height:100%;object-fit:cover;display:block}
+.port img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+ul.facts{padding-left:20px;margin:8px 0 0}
+ul.facts li{margin-bottom:6px}
+footer{background:#041118;color:#d7e6ea}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+@media(max-width:860px){.grid{grid-template-columns:minmax(0,1fr)}.sum{position:static}}
+@media(max-width:600px){nav a.l{display:none}table{font-size:13px}th,td{padding:6px 4px}.f{grid-template-columns:minmax(0,1fr) 6em}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}#hv{display:none}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="logo" href="#top">MAX RODIN</a>
+  <a class="l" href="#works" data-t="nWorks">Работы</a>
+  <a class="l" href="#pick" data-t="nPick">Подобрать</a>
+  <a class="l" href="#after" data-t="nAfter">После тура</a>
+  <a class="l" href="#about" data-t="nAbout">Обо мне</a>
+  <div class="lang" role="group" aria-label="Language"><button id="lru" aria-pressed="true">RU</button><button id="len" aria-pressed="false">EN</button></div>
+</div></nav>
+
+<header class="hero" id="top">
+  <video id="hv" autoplay muted loop playsinline preload="auto" poster="media/hero2.jpg" aria-hidden="true"><source src="media/hero2.mp4" type="video/mp4"></video><div class="shade"></div>
+  <div class="wrap">
+    <h1 data-t="hTitle">Фото и видео в турах по островам Пхукета</h1>
+    <p data-t="hSub">Вы отдыхаете, а я сохраняю ваше путешествие: снимаю, помогаю с позами и вещами, подсказываю лучшие места и свет.</p>
+    <div class="btns">
+      <a class="btn main" href="#pick" data-t="hCta">Подобрать пакет</a>
+      <a class="btn ghost wa" href="#" data-t="hWa">Написать в WhatsApp</a>
+    </div>
+  </div>
+</header>
+
+<section class="band" id="works"><div class="wrap">
+  <div class="galbar"><h2 data-t="wTitle" style="margin:0">Работы</h2><div class="arrows"><button id="gp" aria-label="Previous">‹</button><button id="gn" aria-label="Next">›</button></div></div>
+  <div class="gal" id="gal"></div>
+  <p class="note" data-t="wNote">Кадры из моих туров. Галерея пополняется.</p>
+</div></section>
+
+<section class="band pick" id="pick"><div class="wrap">
+  <h2 data-t="pTitle">Подберите свой пакет</h2>
+  <div class="days" role="group" aria-label="Days"><button id="d1" aria-pressed="true" data-t="d1">Тур на 1 день</button><button id="d2" aria-pressed="false" data-t="d2">Тур на 2 дня</button></div>
+  <div class="grid">
+    <div><div class="pk" id="pk"></div><p class="note" style="margin-top:14px" data-t="pCam">Профессиональная камера и подводная съёмка — по предварительной записи. Могу снимать на ваш телефон по тем же ценам.</p></div>
+    <aside class="sum" aria-live="polite">
+      <h3 id="sName"></h3>
+      <div class="adds" id="adds"></div>
+      <div class="f">
+        <label><span data-t="fName">Ваше имя</span><input id="nm" autocomplete="given-name"></label>
+        <label><span data-t="fPpl">Человек</span><input id="pp" type="number" min="1" max="20" value="2" inputmode="numeric"></label>
+      </div>
+      <div class="total"><span data-t="sTotal">Итого</span><b id="tot"></b></div>
+      <a class="btn main" id="sendWa" href="#" data-t="sWa">Записаться в WhatsApp</a>
+      <a class="btn ghost" id="sendTg" href="#" data-t="sTg">Записаться в Telegram</a>
+    </aside>
+  </div>
+  <details><summary data-t="allP">Все цены</summary><div class="scroll"><table id="tbl"></table></div></details>
+</div></section>
+
+<section class="band after" id="after"><div class="wrap">
+  <h2 data-t="aTitle">Пока вы на Пхукете</h2>
+  <div class="two">
+    <div class="box"><h3 data-t="a1t">Самые красивые места острова</h3><p data-t="a1p">Покажу места, куда не возят большие группы, и сниму вас там в лучший свет.</p></div>
+    <div class="box"><h3 data-t="a2t">Фотосессия на пляже на закате</h3><p data-t="a2p">Фото и видео для вас, для пары или для семьи. Для гостей моих туров — особая цена.</p></div>
+  </div>
+  <div class="btns"><a class="btn main wa2" href="#" data-t="aCta">Узнать цену</a></div>
+</div></section>
+
+<section class="band about" id="about"><div class="wrap two">
+  <div class="portw"><div class="port"><img src="media/me2.jpg" alt="Max Rodin" loading="lazy"></div><div class="inset"><img src="media/me.jpg" alt="Max Rodin on a tour" loading="lazy"></div></div>
+  <div>
+    <h2 data-t="abTitle">Привет, я Макс</h2>
+    <p data-t="ab1">Фотограф и видеограф на Пхукете. Снимаю путешествия, людей и настоящие эмоции, а ещё короткие видео для местного бизнеса, lifestyle и интервью.</p>
+    <ul class="facts">
+      <li data-t="ab2">Сам монтирую, работаю с цветом и звуком.</li>
+      <li data-t="ab3">Использую AI-инструменты в монтаже и создании контента.</li>
+      <li data-t="ab4">8+ лет в сервисе и событиях: знаю, как сделать, чтобы гостю было спокойно и удобно.</li>
+    </ul>
+  </div>
+</div></section>
+
+<footer class="band"><div class="wrap">
+  <div><b>MAX RODIN</b><br><span data-t="ft">Фото и видео в турах · Пхукет</span></div>
+  <div>WhatsApp: <a class="wa" href="#" id="ftWa"></a><br><span id="ftTg"></span></div>
+</div></footer>
+
+<script>
+{
+const CFG={wa:"66961234185",tg:"Max_Rodin"}; // tg: Telegram username without @
+const T={
+ru:{nWorks:"Работы",nPick:"Подобрать",nAfter:"После тура",nAbout:"Обо мне",hTitle:"Фото и видео в турах по островам Пхукета",hSub:"Вы отдыхаете, а я сохраняю ваше путешествие: снимаю, помогаю с позами и вещами, подсказываю лучшие места и свет.",hCta:"Подобрать пакет",hWa:"Написать в WhatsApp",wTitle:"Работы",wNote:"Кадры из моих туров. Галерея пополняется.",pTitle:"Подберите свой пакет",d1:"Тур на 1 день",d2:"Тур на 2 дня",pCam:"Профессиональная камера и подводная съёмка — по предварительной записи. Могу снимать на ваш телефон по тем же ценам.",fName:"Ваше имя",fPpl:"Человек",sTotal:"Итого",sWa:"Записаться в WhatsApp",sTg:"Записаться в Telegram",allP:"Все цены",aTitle:"Пока вы на Пхукете",a1t:"Самые красивые места острова",a1p:"Покажу места, куда не возят большие группы, и сниму вас там в лучший свет.",a2t:"Фотосессия на пляже на закате",a2p:"Фото и видео для вас, для пары или для семьи. Для гостей моих туров — особая цена.",aCta:"Узнать цену",abTitle:"Привет, я Макс",ab1:"Фотограф и видеограф на Пхукете. Снимаю путешествия, людей и настоящие эмоции, а ещё короткие видео для местного бизнеса, lifestyle и интервью.",ab2:"Сам монтирую, работаю с цветом и звуком.",ab3:"Использую AI-инструменты в монтаже и создании контента.",ab4:"8+ лет в сервисе и событиях: знаю, как сделать, чтобы гостю было спокойно и удобно.",ft:"Фото и видео в турах · Пхукет",thb:"бат",pkg:"Пакет",day1:"1 день",day2:"2 дня",addT:"Добавить",hi:"Привет, Макс! Хочу записаться.",msgPkg:"Пакет",msgTour:"Тур",msgAdd:"Дополнительно",msgPpl:"Нас",msgName:"Имя",msgTot:"Итого",tg:"Telegram",askPrice:"Привет, Макс! Хочу узнать про фотосессию / показ красивых мест на Пхукете.",gal:["Качели у моря","У скал","Вдвоём","Смотровая","Валуны","Лагуна","Над бухтой","Команда лодки","Жители острова","Под водой","Видео с острова"]},
+en:{nWorks:"Work",nPick:"Choose",nAfter:"After the tour",nAbout:"About",hTitle:"Photo & video on Phuket island tours",hSub:"You enjoy the trip, I keep it for you: I shoot, help with poses and bags, and find the best spots and light.",hCta:"Choose a package",hWa:"Message on WhatsApp",wTitle:"Work",wNote:"Shots from my tours. More coming soon.",pTitle:"Choose your package",d1:"1-day tour",d2:"2-day tour",pCam:"Professional camera and underwater shooting by advance booking. I can also shoot on your phone at the same prices.",fName:"Your name",fPpl:"People",sTotal:"Total",sWa:"Book on WhatsApp",sTg:"Book on Telegram",allP:"All prices",aTitle:"While you are in Phuket",a1t:"The island's most beautiful spots",a1p:"I'll take you where big groups don't go and shoot you there in the best light.",a2t:"Sunset beach photo session",a2p:"Photo and video for you, a couple or a family. A special price for my tour guests.",aCta:"Ask the price",abTitle:"Hi, I'm Max",ab1:"Photographer and videographer in Phuket. I shoot travel, people and real emotions, plus short videos for local businesses, lifestyle and interviews.",ab2:"I edit myself, including colour and sound.",ab3:"I use AI tools for editing and content.",ab4:"8+ years in hospitality and events: I know how to keep guests relaxed and comfortable.",ft:"Photo & video on tours · Phuket",thb:"THB",pkg:"Package",day1:"1 day",day2:"2 days",addT:"Add",hi:"Hi Max! I'd like to book.",msgPkg:"Package",msgTour:"Tour",msgAdd:"Extras",msgPpl:"People",msgName:"Name",msgTot:"Total",tg:"Telegram",askPrice:"Hi Max! I'd like to know about a photo session / private tour of beautiful spots in Phuket.",gal:["Beach swing","By the cliffs","Together","Viewpoint","Boulders","Lagoon","Above the bay","Boat crew","Island locals","Underwater","Island video"]}};
+const PK=[
+{id:"pers",p:[7500,10000],edits:true,ru:["Личный фотограф","Весь тур только с вами · все исходники + 50 обработанных фото","Максимум внимания"],en:["Personal photographer","The whole tour just for you · all originals + 50 edited photos","Full attention"]},
+{id:"p2",p:[6000,7500],edits:true,ru:["Премиум 2","30 обработанных фото + все исходники + видео до 30 сек","Популярный"],en:["Premium 2","30 edited photos + all originals + video up to 30 s","Popular"]},
+{id:"p1",p:[4500,6500],edits:true,ru:["Премиум 1","30 обработанных фото + все исходники",""],en:["Premium 1","30 edited photos + all originals",""]},
+{id:"all",p:[4000,6000],edits:false,ru:["Все локации","Съёмка на всех остановках тура",""],en:["All locations","Shooting at every stop of the tour",""]},
+{id:"one",p:[3500,4500],edits:false,ru:["Одна локация / две за 2 дня","Съёмка на одной остановке (в двухдневном туре — на двух)",""],en:["One location / two on 2 days","Shooting at one stop (two stops on a 2-day tour)",""]}];
+const AD=[
+{id:"v30",p:[2500,3500],ru:"Видео до 30 сек",en:"Video up to 30 s"},
+{id:"v60",p:[4500,5500],ru:"Видео до 1 мин",en:"Video up to 1 min"},
+{id:"vst",p:[7000,9000],ru:"Видео-история 2,5–3 мин",en:"Travel story video 2.5–3 min"},
+{id:"e40",p:[1500,1500],noEdits:true,ru:"40 обработанных фото",en:"40 edited photos"}];
+let lang="ru",day=0,sel="pers",adds=new Set();
+{let s=null;try{s=localStorage.getItem("mr_lang")}catch(e){}
+if(s==="ru"||s==="en")lang=s;else if(!/^ru/i.test(navigator.language||""))lang="en";}
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmt=n=>n.toLocaleString("ru-RU").replace(/ /g," ");
+const t=k=>T[lang][k];
+const waLink=txt=>"https://wa.me/"+CFG.wa+"?text="+encodeURIComponent(txt);
+const tgLink=txt=>"https://t.me/"+CFG.tg+"?text="+encodeURIComponent(txt);
+const GI=["g9","g1","g2","g3","g4","g5","g6","g7","g8","s12"];
+function gal(){
+  const g=t("gal");
+  $("gal").innerHTML=GI.map((s,i)=>`<div class="tile"><img src="media/${s}.jpg" alt="${esc(g[i])}" loading="lazy"><b>${esc(g[i])}</b></div>`).join("")+`<div class="tile v"><video controls playsinline preload="none" poster="media/hero2.jpg" src="media/island.mp4"></video><b>${esc(g[10])}</b></div>`;
+}
+function pk(){
+  $("pk").innerHTML=PK.map(p=>{const L=p[lang];return `<label class="opt${p.id===sel?" on":""}"><input type="radio" name="pk" value="${p.id}"${p.id===sel?" checked":""}><span><b>${esc(L[0])}</b>${L[2]?`<span class="tag">${esc(L[2])}</span>`:""}</span><span class="pr">${fmt(p.p[day])}</span><small>${esc(L[1])}</small></label>`}).join("");
+  const cur=PK.find(p=>p.id===sel);
+  if(cur.edits)adds.delete("e40");
+  $("adds").innerHTML=`<span style="font-size:14px;opacity:.85">${esc(t("addT"))}</span>`+AD.filter(a=>!(a.noEdits&&cur.edits)).map(a=>`<label><input type="checkbox" value="${a.id}"${adds.has(a.id)?" checked":""}>${esc(a[lang])}<span class="p">+${fmt(a.p[day])}</span></label>`).join("");
+  sum();
+}
+function total(){const cur=PK.find(p=>p.id===sel);return cur.p[day]+AD.filter(a=>adds.has(a.id)).reduce((s,a)=>s+a.p[day],0)}
+function msg(){
+  const cur=PK.find(p=>p.id===sel),ex=AD.filter(a=>adds.has(a.id)).map(a=>a[lang]);
+  const L=[t("hi"),t("msgPkg")+": "+cur[lang][0],t("msgTour")+": "+(day?t("day2"):t("day1"))];
+  if(ex.length)L.push(t("msgAdd")+": "+ex.join(", "));
+  L.push(t("msgPpl")+": "+($("pp").value||"1"));
+  if($("nm").value.trim())L.push(t("msgName")+": "+$("nm").value.trim());
+  L.push(t("msgTot")+": "+fmt(total())+" "+t("thb"));
+  return L.join("\n");
+}
+function sum(){
+  const cur=PK.find(p=>p.id===sel);
+  $("sName").textContent=cur[lang][0]+" · "+(day?t("day2"):t("day1"));
+  $("tot").textContent=fmt(total())+" "+t("thb");
+  $("sendWa").href=waLink(msg());
+  if(CFG.tg){$("sendTg").href=tgLink(msg());$("sendTg").hidden=false}else $("sendTg").hidden=true;
+}
+function tbl(){
+  $("tbl").innerHTML=`<thead><tr><th>${esc(t("pkg"))}</th><th class="n">${esc(t("day1"))}</th><th class="n">${esc(t("day2"))}</th></tr></thead><tbody>`+PK.concat(AD).map(p=>{const n=Array.isArray(p[lang])?p[lang][0]:p[lang];return `<tr><td>${esc(n)}</td><td class="n">${fmt(p.p[0])}</td><td class="n">${fmt(p.p[1])}</td></tr>`}).join("")+"</tbody>";
+}
+function render(){
+  document.documentElement.lang=lang;
+  document.querySelectorAll("[data-t]").forEach(el=>{const v=T[lang][el.dataset.t];if(typeof v==="string")el.textContent=v});
+  $("lru").setAttribute("aria-pressed",lang==="ru");$("len").setAttribute("aria-pressed",lang==="en");
+  $("d1").setAttribute("aria-pressed",day===0);$("d2").setAttribute("aria-pressed",day===1);
+  document.querySelectorAll(".wa").forEach(a=>a.href=waLink(t("hi")));
+  document.querySelector(".wa2").href=waLink(t("askPrice"));
+  $("ftWa").textContent="+"+CFG.wa.replace(/^66(\d{2})(\d{3})(\d{4})$/,"66 $1 $2 $3");
+  $("ftTg").textContent=CFG.tg?"Telegram: @"+CFG.tg:"";
+  gal();pk();tbl();
+}
+$("lru").onclick=()=>{lang="ru";try{localStorage.setItem("mr_lang",lang)}catch(e){}render()};
+$("len").onclick=()=>{lang="en";try{localStorage.setItem("mr_lang",lang)}catch(e){}render()};
+$("d1").onclick=()=>{day=0;render()};
+$("d2").onclick=()=>{day=1;render()};
+$("pk").addEventListener("change",e=>{if(e.target.name==="pk"){sel=e.target.value;pk()}});
+$("adds").addEventListener("change",e=>{const v=e.target.value;e.target.checked?adds.add(v):adds.delete(v);sum()});
+$("nm").addEventListener("input",sum);$("pp").addEventListener("input",sum);
+const step=d=>{const g=$("gal"),w=g.querySelector(".tile");if(w)g.scrollBy({left:d*(w.offsetWidth+14),behavior:"smooth"})};
+$("gp").onclick=()=>step(-1);$("gn").onclick=()=>step(1);
+$("gal").tabIndex=0;$("gal").addEventListener("keydown",e=>{if(e.key==="ArrowRight")step(1);if(e.key==="ArrowLeft")step(-1)});
+render();
+}
+</script>
+</body>
+</html>
